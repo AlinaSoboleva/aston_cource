@@ -66,7 +66,6 @@ public class ArrayListTest {
         assertThrows(IndexOutOfBoundsException.class, () ->
                 integerList.addByIndex(0, 4)
         );
-
     }
 
     @Test
@@ -157,4 +156,23 @@ public class ArrayListTest {
         assertThat(integerList.get(1)).isEqualTo(3);
         assertThat(integerList.get(5)).isEqualTo(10);
     }
+
+    @Test
+    @DisplayName("Сортировка набора, если 1 элемент равен null")
+    public void sort_whereOneElementIsNull() {
+        integerList.clear();
+
+        integerList.add(null);
+        integerList.add(3);
+        integerList.add(1);
+        integerList.add(6);
+
+        integerList.sort();
+
+        assertThat(integerList.get(0)).isEqualTo(1);
+        assertThat(integerList.get(1)).isEqualTo(3);
+        assertThat(integerList.get(2)).isEqualTo(6);
+        assertThat(integerList.get(3)).isNull();
+    }
+
 }

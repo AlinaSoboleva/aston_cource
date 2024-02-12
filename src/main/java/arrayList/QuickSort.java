@@ -65,7 +65,9 @@ public class QuickSort {
         int i = low - 1;
 
         for (int j = low; j <= high - 1; j++) {
-            if (c.compare(array[j], pivot) < 0) {
+            if (pivot == null || array[j] == null) {
+                continue;
+            } else if (c.compare(array[j], pivot) < 0) {
                 i++;
                 swap(array, i, j);
             }
@@ -81,7 +83,9 @@ public class QuickSort {
         int i = low - 1;
 
         for (int j = low; j <= high - 1; j++) {
-            if (pivot.compareTo(array[j]) > 0) {
+            if (pivot == null || array[j] == null){
+                continue;
+            }else if (pivot.compareTo(array[j]) > 0) {
                 i++;
                 swap(array, i, j);
             }
